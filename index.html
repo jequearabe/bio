@@ -4,91 +4,96 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Carlos Ruiz</title>
-  <meta name="description" content="Carlos Ruiz — designer & creative technologist. Abstract works and digital craft.">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(8px); }
-      100% { opacity: 1; transform: translateY(0); }
+
+    html, body {
+      overflow: hidden;
+      cursor: crosshair;
     }
+    body {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
     @keyframes floatSoft {
       0% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-5px); }
       100% { transform: translateY(0px); }
     }
+    .gallery-item {
+      animation: floatSoft 5s ease-in-out infinite;
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.15);
+    }
+
     @keyframes slideLine {
       0% { transform: translateY(-50%) scaleX(0); opacity: 0; }
       100% { transform: translateY(-50%) scaleX(1); opacity: 1; }
     }
-    body {
-      animation: fadeIn 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1) forwards;
-      background-color: #f5f5f5;
-    }
-    .card {
-      animation: floatSoft 6s ease-in-out infinite;
-      transition: transform 0.25s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
-    }
-    .line-slice {
-      animation: slideLine 0.7s cubic-bezier(0.2, 0.9, 0.4, 1) forwards;
+    .slice-line {
+      animation: slideLine 0.6s cubic-bezier(0.2, 0.9, 0.4, 1) forwards;
     }
     @media (max-width: 768px) {
-      .line-slice {
+      .slice-line {
         display: none;
       }
     }
-    button, a {
-      cursor: pointer;
-    }
   </style>
 </head>
-<body class="antialiased font-sans text-gray-900">
-  <div class="max-w-6xl mx-auto px-6 py-8 md:py-12 min-h-screen flex flex-col justify-between">
-    <!-- Header: name + email pill -->
-    <div class="flex justify-between items-start flex-wrap gap-4">
-      <div class="space-y-1">
-        <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[1.05]">
+<body class="bg-[#f5f5f5] font-sans antialiased text-gray-900">
+  <div class="h-screen flex flex-col px-6 py-5 md:px-8 md:py-6">
+    <div class="flex justify-between items-start flex-wrap gap-3">
+      <div class="leading-[1.05]">
+        <h1 class="text-5xl md:text-6xl font-black uppercase tracking-tighter">
           CARLOS<br>RUIZ
         </h1>
       </div>
       <a href="mailto:guezatti@europe.com" 
-         class="inline-flex items-center border border-black rounded-full px-5 py-2 text-sm md:text-base font-medium transition-all duration-200 hover:bg-black hover:text-white">
+         class="inline-flex items-center border border-black rounded-full px-4 py-1.5 text-sm md:text-base font-medium transition-all duration-200 hover:bg-black hover:text-white">
         guezatti@europe.com
       </a>
     </div>
 
-    <div class="relative my-16 md:my-20">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-        <div class="card aspect-square rounded-3xl bg-cover bg-center shadow-sm"
-             style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 600\'%3E%3Cdefs%3E%3CradialGradient id=\'a\' cx=\'30%25\' cy=\'40%25\' r=\'80%25\'%3E%3Cstop offset=\'0%25\' stop-color=\'%23FF6A3D\'/%3E%3Cstop offset=\'70%25\' stop-color=\'%23D93B00\'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width=\'600\' height=\'600\' fill=\'url(%23a)\'/%3E%3Cpath d=\'M100,200 Q220,120 340,180 T560,250\' stroke=\'%23FFC285\' stroke-width=\'28\' fill=\'none\' stroke-opacity=\'0.6\'/%3E%3Ccircle cx=\'450\' cy=\'420\' r=\'95\' fill=\'%23FF8C5A\' opacity=\'0.6\'/%3E%3Cpath d=\'M60,500 L200,460 L260,560 L80,540 Z\' fill=\'%23FFB07C\' opacity=\'0.55\'/%3E%3C/svg%3E')">
+    <div class="relative flex-1 min-h-0 my-4 md:my-5">
+      <div class="h-full grid grid-cols-3 gap-4 md:gap-6 items-stretch">
+        <div class="gallery-item rounded-xl overflow-hidden bg-gray-200 shadow-sm">
+          <img src="https://i.imgur.com/TDkQMon.png" 
+               alt="Abstract gallery 1" 
+               class="w-full h-full object-cover">
         </div>
-        
-        <div class="card aspect-square rounded-3xl bg-cover bg-center shadow-sm"
-             style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 600\'%3E%3Cdefs%3E%3CradialGradient id=\'b\' cx=\'70%25\' cy=\'30%25\' r=\'90%25\'%3E%3Cstop offset=\'0%25\' stop-color=\'%237E57E2\'/%3E%3Cstop offset=\'100%25\' stop-color=\'%2330227A\'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width=\'600\' height=\'600\' fill=\'url(%23b)\'/%3E%3Cpath d=\'M480,120 C540,180 590,280 520,370 C450,460 310,490 220,420 C150,360 100,260 170,170 C220,90 410,50 480,120Z\' fill=\'%23977BFF\' opacity=\'0.6\'/%3E%3Cellipse cx=\'320\' cy=\'340\' rx=\'115\' ry=\'90\' fill=\'%23825AE6\' opacity=\'0.55\'/%3E%3C/svg%3E')">
+        <div class="gallery-item rounded-xl overflow-hidden bg-gray-200 shadow-sm">
+          <img src="https://i.imgur.com/w6J8EQ2.png" 
+               alt="Abstract gallery 2" 
+               class="w-full h-full object-cover">
         </div>
-        
-        <div class="card aspect-square rounded-3xl bg-cover bg-center shadow-sm"
-             style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 600\'%3E%3Cdefs%3E%3CradialGradient id=\'c\' cx=\'45%25\' cy=\'55%25\' r=\'85%25\'%3E%3Cstop offset=\'0%25\' stop-color=\'%23F14A6E\'/%3E%3Cstop offset=\'100%25\' stop-color=\'%23A51446\'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width=\'600\' height=\'600\' fill=\'url(%23c)\'/%3E%3Cpath d=\'M130,200 Q210,100 310,140 T520,190\' stroke=\'%23FFA3C2\' stroke-width=\'26\' fill=\'none\' stroke-opacity=\'0.65\'/%3E%3Ccircle cx=\'430\' cy=\'450\' r=\'100\' fill=\'%23EB6F92\' opacity=\'0.7\'/%3E%3Cpath d=\'M40,510 L170,480 L220,580 L60,560 Z\' fill=\'%23F77FA3\' opacity=\'0.6\'/%3E%3C/svg%3E')">
+        <div class="gallery-item rounded-xl overflow-hidden bg-gray-200 shadow-sm">
+          <img src="https://i.imgur.com/lozghuo.png" 
+               alt="Abstract gallery 3" 
+               class="w-full h-full object-cover">
         </div>
       </div>
-      <div class="line-slice absolute top-1/2 left-0 w-full h-px bg-black z-10 pointer-events-none transform -translate-y-1/2"></div>
+      <div class="slice-line absolute top-1/2 left-0 w-full h-px bg-black z-10 pointer-events-none transform -translate-y-1/2"></div>
     </div>
 
-    <div class="flex justify-between items-center mt-6 md:mt-8">
+    <div class="flex justify-between items-center pt-2 pb-1">
       <a href="https://github.com/zektrace" target="_blank" rel="noopener noreferrer" 
-         class="group w-12 h-12 md:w-14 md:h-14 rounded-full border border-black flex items-center justify-center transition-all duration-200 hover:bg-black hover:scale-110 hover:rotate-3">
-        <svg class="w-5 h-5 md:w-6 md:h-6 transition-colors group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025.8-.223 1.65-.334 2.5-.334.85 0 1.7.111 2.5.334 1.91-1.294 2.75-1.025 2.75-1.025.545 1.376.201 2.393.099 2.646.64.698 1.03 1.591 1.03 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="currentColor" stroke="none"/>
+         class="group w-11 h-11 md:w-12 md:h-12 rounded-full border border-black flex items-center justify-center transition-all duration-200 hover:bg-black hover:scale-110 hover:rotate-3">
+        <svg class="w-5 h-5 md:w-5 md:h-5 transition-colors group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025.8-.223 1.65-.334 2.5-.334.85 0 1.7.111 2.5.334 1.91-1.294 2.75-1.025 2.75-1.025.545 1.376.201 2.393.099 2.646.64.698 1.03 1.591 1.03 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
         </svg>
       </a>
       <a href="https://www.instagram.com/carlossruuizz" target="_blank" rel="noopener noreferrer" 
-         class="group w-12 h-12 md:w-14 md:h-14 rounded-full border border-black flex items-center justify-center transition-all duration-200 hover:bg-black hover:scale-110 hover:rotate-3">
-        <svg class="w-5 h-5 md:w-6 md:h-6 transition-colors group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2C22 19.4 19.4 22 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+         class="group w-11 h-11 md:w-12 md:h-12 rounded-full border border-black flex items-center justify-center transition-all duration-200 hover:bg-black hover:scale-110 hover:rotate-3">
+        <svg class="w-5 h-5 md:w-5 md:h-5 transition-colors group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2C22 19.4 19.4 22 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2Z" stroke-width="1.5" fill="none"/>
+          <circle cx="12" cy="12" r="4.5" stroke-width="1.5" fill="none"/>
           <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
         </svg>
       </a>
